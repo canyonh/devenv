@@ -6,6 +6,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 
 "
@@ -22,3 +25,6 @@ syntax enable
 
 " Display all matching files when we tab complete
 set wildmenu
+
+set nu
+set hlsearch

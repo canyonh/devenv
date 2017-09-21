@@ -1,2 +1,2 @@
-git clone https://github.com/VundleVim/Vundle.vim ~/.vim.bundle
-vim +pluginInstasll
+git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+vim +PluginInstall

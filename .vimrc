@@ -7,7 +7,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'ervandew/supertab'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 
@@ -28,3 +28,6 @@ set wildmenu
 
 set nu
 set hlsearch
+
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+

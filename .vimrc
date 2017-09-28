@@ -31,3 +31,5 @@ set hlsearch
 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
+" leader k for nerd tree
+nmap <leader>k :NERDTreeToggle<cr>

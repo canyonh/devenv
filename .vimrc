@@ -33,3 +33,8 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " leader k for nerd tree
 nmap <leader>k :NERDTreeToggle<cr>
+
+"set jedi-vim auto completion to contrl-N since ctrl-space is switching input
+"methods
+
+let g:jedi#completions_command = "<C-N>"

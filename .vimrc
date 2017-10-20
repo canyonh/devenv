@@ -32,6 +32,9 @@ set hlsearch
 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
+" case insensitive search
+set ignorecase
+
 " leader k for nerd tree
 nmap <leader>k :NERDTreeToggle<cr>
 

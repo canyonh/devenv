@@ -8,3 +8,4 @@ fi
 cp .vimrc ~
 cp .tmux.conf ~
 vim +PluginInstall
+~/.vim/bundle/YouCompleteMe/install.sh --clang-complete

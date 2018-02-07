@@ -7,9 +7,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'davidhalter/jedi-vim'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
@@ -42,17 +40,14 @@ nmap <leader>k :NERDTreeToggle<cr>
 
 let g:ycm_global_ycm_extra_conf = '/home/kxhuan/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
-"set jedi-vim auto completion to contrl-N since ctrl-space is switching input
-"methods
+"The Silver Searcher
+if executable('ag')
+	" Use ag over grep
+	set grepprg=ag\ --nogroup\ --nocolor
 
-"let g:jedi#completions_command = "<C-N>"
+	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-"syntatic recommend settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+	"ag is fast enough that CtrlP doesn't need to cache
+	let g:ctrlp_use_caching = 0
+endif

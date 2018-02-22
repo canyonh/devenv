@@ -10,6 +10,7 @@ elif [[ "$unamestr" == 'FreeBSD' ]]; then
 fi
 
 #vim
+echo "source $HOME/devenv/vim/.vimrc" > ~/.vimrc 
 VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
 echo $VUNDLE_DIR
 if [ ! -d $VUNDLE_DIR ]; then
@@ -37,6 +38,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-echo "source $HOME/devenv/vim/.vimrc" > ~/.vimrc 
 echo "source $HOME/devenv/zsh/.zshrc" > ~/.zshrc
 echo "source $HOME/devenv/tmux/.tmux.conf" > ~/.tmux.conf

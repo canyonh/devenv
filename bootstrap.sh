@@ -23,8 +23,9 @@ if [[ "$platform" == 'linux' ]]; then
 fi
 
 # install plugin silently
-#echo | echo | vim +PluginInstall +qall &>/dev/null
-vim +PluginInstall
+echo | echo | vim +PluginInstall +qall &>/dev/null
+#vim +PluginInstall
+
 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-complete
 
 #zsh

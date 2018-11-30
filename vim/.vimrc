@@ -35,6 +35,9 @@ set tabstop=4 softtabstop=0 shiftwidth=4 smarttab
 " case insensitive search
 set ignorecase
 
+" don't open window on first match
+let g:EasyGrepOpenWindowOnMatch=0
+
 " leader k for nerd tree
 nmap <leader>k :NERDTreeToggle<cr>
 

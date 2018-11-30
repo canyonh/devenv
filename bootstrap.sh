@@ -41,3 +41,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 echo "source $HOME/devenv/zsh/.zshrc" > ~/.zshrc
 echo "source $HOME/devenv/tmux/.tmux.conf" > ~/.tmux.conf
+
+#gdb pretty printers
+(mkdir ~/gdb_printers; cd gdb_printers && svn co svn://gcc.gnu.org/svn/gcc/trunk/libstdc++-v3/python)
+printf "python\nimport sys\nsys.path.insert(0, '/home/maude/gdb_printers/python')\nfrom libstdcxx.v6.printers import register_libstdcxx_printers\nregister_libstdcxx_printers (None)\nend" > ~/.gdbinit
+

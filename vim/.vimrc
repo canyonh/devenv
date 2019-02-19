@@ -29,8 +29,8 @@ set wildmenu
 set nu
 set hlsearch
 
-"set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
-set tabstop=4 softtabstop=0 shiftwidth=4 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+"set tabstop=4 softtabstop=0 shiftwidth=4 smarttab
 
 " case insensitive search
 set ignorecase
@@ -43,7 +43,8 @@ nmap <leader>k :NERDTreeToggle<cr>
 
 " YCM
 set encoding=utf-8
-let g:ycm_global_ycm_extra_conf = '/home/kxhuan/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" will be added later by bootstrap.sh
+" let g:ycm_global_ycm_extra_conf = '/home/kxhuan/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
 
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>

@@ -27,6 +27,7 @@ echo | echo | vim +PluginInstall +qall &>/dev/null
 #vim +PluginInstall
 
 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-complete
+printf "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'\n" >> ~/devenv/vim/.vimrc
 
 #zsh
 if [[ "$platform" == 'linux' ]]; then

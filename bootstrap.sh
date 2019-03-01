@@ -20,6 +20,7 @@ fi
 if [[ "$platform" == 'linux' ]]; then
 	sudo apt-get install -y build-essential cmake
 	sudo apt-get install -y python-dev python3-dev
+    sudo apt-get install powerline fonts-powerline python-powerline python3-powerline
 fi
 
 # install plugin silently
@@ -32,6 +33,7 @@ printf "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third
 #zsh
 if [[ "$platform" == 'linux' ]]; then
 	sudo apt-get -y install zsh 
+    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 else
 	brew install zsh
 fi

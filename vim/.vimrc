@@ -9,6 +9,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
 call vundle#end()
 
 "
@@ -62,3 +63,4 @@ if executable('ag')
 	"ag is fast enough that CtrlP doesn't need to cache
 	let g:ctrlp_use_caching = 0
 endif
+let g:ycm_global_ycm_extra_conf = '/home/kxhuan/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'

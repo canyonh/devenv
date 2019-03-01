@@ -1,4 +1,5 @@
 #!/bin/bash -x
+#bootstrap
 HOME=$(echo ~)
 
 platform='unknown'

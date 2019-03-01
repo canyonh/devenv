@@ -1,5 +1,5 @@
 #!/bin/bash -x
-#bootstrap
+# installs necessary files onto dev machine. TODO Mac OSX support is not complete
 HOME=$(echo ~)
 
 platform='unknown'

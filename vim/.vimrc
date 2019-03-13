@@ -48,6 +48,9 @@ set encoding=utf-8
 " let g:ycm_global_ycm_extra_conf = '/home/kxhuan/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
 
+"power line fonts
+let g:airline_powerline_fonts = 1 
+
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -63,4 +66,6 @@ if executable('ag')
 	"ag is fast enough that CtrlP doesn't need to cache
 	let g:ctrlp_use_caching = 0
 endif
+
 let g:ycm_global_ycm_extra_conf = '/home/kxhuan/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+

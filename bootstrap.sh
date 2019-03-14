@@ -34,10 +34,10 @@ printf "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third
 #zsh
 if [[ "$platform" == 'linux' ]]; then
 	sudo apt-get -y install zsh 
-    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 else
 	brew install zsh
 fi
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

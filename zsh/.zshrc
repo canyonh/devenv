@@ -63,7 +63,6 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(
   git
   symfony2
-  docker
   zsh-autosuggestions
   zsh-syntax-highlighting
 )

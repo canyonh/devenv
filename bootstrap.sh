@@ -46,6 +46,9 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 echo "source $HOME/devenv/zsh/.zshrc" > ~/.zshrc
 echo "source $HOME/devenv/tmux/.tmux.conf" > ~/.tmux.conf
 
+# tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/devenv/tmux/plugins/tpm
+
 #gdb pretty printers
 (mkdir ~/gdb_printers; cd gdb_printers && svn co svn://gcc.gnu.org/svn/gcc/trunk/libstdc++-v3/python)
 printf "python\nimport sys\nsys.path.insert(0, '/home/maude/gdb_printers/python')\nfrom libstdcxx.v6.printers import register_libstdcxx_printers\nregister_libstdcxx_printers (None)\nend" > ~/.gdbinit

@@ -63,7 +63,6 @@ ZSH_THEME="bira"
 plugins=(
   git
   symfony2
-  docker
   zsh-autosuggestions
   zsh-syntax-highlighting
 )

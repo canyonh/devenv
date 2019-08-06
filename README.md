@@ -1,2 +1,2 @@
 # devenv
-dev environment setups (vimrc... etc)
+dev environment setups (vimrc, tmux... etc)

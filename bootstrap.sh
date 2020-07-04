@@ -1,55 +1,57 @@
 #!/bin/bash -x
-# installs necessary files onto dev machine. TODO Mac OSX support is not complete
 HOME=$(echo ~)
 
-platform='unknown'
-unamestr="$(uname)"
-if [[ "$unamestr" == 'Linux' ]]; then
-	platform='linux'
-elif [[ "$unamestr" == 'FreeBSD' ]]; then
-	platform='freebsd'
+#utility
+sudo apt-get install -y openssh-server apt-file silversearcher-ag
+sudo apt-file update
+
+# zsh
+#sudo apt-get install -y zsh fonts-powerline
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+#git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+#echo "source $HOME/devenv/zsh/.zshrc" > ~/.zshrc
+
+## tmux
+#sudo apt-get install -y tmux
+if [ -f "${HOME}/.tmux.conf" ]; then
+    cp ${HOME}/.tmux.conf ${HOME}/.tmux.conf.bak
 fi
 
-#vim
-echo "source $HOME/devenv/vim/.vimrc" > ~/.vimrc 
-VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
-echo $VUNDLE_DIR
-if [ ! -d $VUNDLE_DIR ]; then
-    git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+echo "source ~/devenv/tmux/.tmux.conf" > ${HOME}/.tmux.conf
+
+#echo "source $HOME/devenv/tmux/.tmux.conf" > ~/.tmux.conf
+#git clone https://github.com/tmux-plugins/tpm ~/devenv/tmux/plugins/tpm
+## @TODO need to fix tmux navigator
+
+## ccls
+#sudo apt-get install -y cmake clang libclang-10-dev nodejs
+#pushd .
+#mkdir ~/source
+#cd ~/source
+#git clone --depth=1 --recursive https://github.com/MaskRay/ccls
+#cd ccls
+#cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/usr/lib/llvm-10 -DLLVM_INCLUDE_DIR=/usr/lib/llvm-10/include -DLLVM_BUILD_INCLUDE_DIR=/usr/include/llvm-10/ && cd Release && sudo make install
+#popd
+
+# git
+if [ -f "${HOME}/.gitconfig" ]; then
+    cp ${HOME}/.gitconfig ${HOME}/.gitconfig.bakj
 fi
 
-if [[ "$platform" == 'linux' ]]; then
-	sudo apt-get install -y build-essential cmake
-	sudo apt-get install -y python-dev python3-dev
-    sudo apt-get install powerline fonts-powerline python-powerline python3-powerline
+echo "[include]\n\tpath=${HOME}/devenv/git/.gitconfig"
+
+git config --global user.email kxhuan@dolby.com
+git config --global user.name kxhuan
+
+# neovim
+sudo apt-get install -y neovim
+if [ -f "${HOME}/.config/nvim/init.vim" ]; then
+    cp ${HOME}/.config/nvim/init.vim ${HOME}/.config/nvim/init.vim.bak
 fi
 
-# install plugin silently
-echo | echo | vim +PluginInstall +qall &>/dev/null
-#vim +PluginInstall
+echo "source ~/devenv/nvim/init.vim" > ${HOME}/.config/nvim/init.vim
 
-$HOME/.vim/bundle/YouCompleteMe/install.py --clang-complete
-printf "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'\n" >> ~/devenv/vim/.vimrc
-
-#zsh
-if [[ "$platform" == 'linux' ]]; then
-	sudo apt-get -y install zsh 
-else
-	brew install zsh
-fi
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-
-echo "source $HOME/devenv/zsh/.zshrc" > ~/.zshrc
-echo "source $HOME/devenv/tmux/.tmux.conf" > ~/.tmux.conf
-
-# tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/devenv/tmux/plugins/tpm
-
-#gdb pretty printers
-(mkdir ~/gdb_printers; cd gdb_printers && svn co svn://gcc.gnu.org/svn/gcc/trunk/libstdc++-v3/python)
-printf "python\nimport sys\nsys.path.insert(0, '/home/maude/gdb_printers/python')\nfrom libstdcxx.v6.printers import register_libstdcxx_printers\nregister_libstdcxx_printers (None)\nend" > ~/.gdbinit
-
+#curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim --headless +PlugInstall +qa

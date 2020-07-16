@@ -1,7 +1,3 @@
-[user]
-    email = kxhuan@dolby.com
-    name = kxhuan
-    
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
     cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"

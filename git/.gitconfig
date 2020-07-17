@@ -1,12 +1,18 @@
-# define command which will be used when "nvim" is set as a merge tool
-[mergetool "nvim"]
-    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[user]
+	email = kxhuan@dolby.com
+	name = kxhuan
 
-# set "nvim" as tool for merging
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[difftool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE
+
+[diff]
+	tool = vimdiff
 [merge]
-    tool = nvim
+	tool = vimdiff
 
-# automatically launch merge tool without displaying a prompt
-[mergetool]
-    prompt = false
-
+[http]
+	sslverify = false
+	postBuffer = 1048576000

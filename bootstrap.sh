@@ -59,3 +59,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 nvim --headless +PlugInstall +qa
 
 cp ${HOME}/devenv/coc.nvim/coc-settings.json ${HOME}/.config/nvim
+
+#ccache
+sudo apt-get install ccache

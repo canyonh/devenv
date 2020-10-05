@@ -65,6 +65,7 @@ plugins=(
   symfony2
   zsh-autosuggestions
   zsh-syntax-highlighting
+  pipenv
 )
 
 source $ZSH/oh-my-zsh.sh

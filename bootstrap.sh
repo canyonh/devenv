@@ -58,7 +58,7 @@ echo "source ~/devenv/nvim/init.vim" > ${HOME}/.config/nvim/init.vim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim --headless +PlugInstall +qa
 
-cp ${HOME}/devenv/coc.nvim/coc-settings.json ${HOME}/.config/nvim
+ln -s ${HOME}/devenv/coc.nvim/coc-settings.json ${HOME}/.config/nvim/coc-settings.json
 
 sudo npm install -g neovim
 

@@ -25,7 +25,7 @@ echo "source $HOME/devenv/tmux/.tmux.conf" > ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/devenv/tmux/plugins/tpm
 
 # ccls
-sudo apt-get install -y cmake clang libclang-10-dev nodejs
+sudo apt-get install -y cmake clang libclang-10-dev nodejs npm
 pushd .
 mkdir ~/source
 cd ~/source
@@ -60,5 +60,8 @@ nvim --headless +PlugInstall +qa
 
 cp ${HOME}/devenv/coc.nvim/coc-settings.json ${HOME}/.config/nvim
 
-#ccache
+sudo npm install -g neovim
+
+#ccache & distcc client
 sudo apt-get install ccache
+sudo apt-get install distcc

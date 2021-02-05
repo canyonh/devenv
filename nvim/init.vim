@@ -1,4 +1,5 @@
 call plug#begin()
+Plug 'will133/vim-dirdiff'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
@@ -21,7 +22,7 @@ set wildmenu
 set nu
 set hlsearch
 
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=0 shiftwidth=4 smarttab expandtab
 "set tabstop=4 softtabstop=0 shiftwidth=4 smarttab
 
 " case insensitive search
@@ -31,6 +32,11 @@ set ignorecase
 if (has("termguicolors"))
   set termguicolors
 endif
+"if exists('+termguicolors')
+"  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"  set termguicolors
+"endif
 
 "-------------------------------------------------
 " NerdTree

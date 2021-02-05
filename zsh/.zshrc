@@ -1,6 +1,11 @@
-# If you come from bash you might have to change your $PATH.
-export TERM="xterm-256color" 
+# I you come from bash you might have to change your $PATH.
+#export TERM="xterm-256color" 
+#export TERM="xterm-256color" 
 export PATH=/usr/lib/ccache:$HOME/bin:/usr/local/bin:$PATH
+
+#distcc
+export CCACHE_PREFIX="distcc"
+export DISTCC_HOSTS='192.168.86.80/16,lzo localhost/4'
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh

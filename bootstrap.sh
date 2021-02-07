@@ -1,11 +1,15 @@
 #!/bin/bash -x
 HOME=$(echo ~)
 
+#---------------------------------------- 
 # utility
+#---------------------------------------- 
 sudo apt-get install -y openssh-server apt-file silversearcher-ag
 sudo apt-file update
 
+#---------------------------------------- 
 # zsh
+#---------------------------------------- 
 sudo apt-get install -y zsh fonts-powerline
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -13,7 +17,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 echo "source $HOME/devenv/zsh/.zshrc" > ~/.zshrc
 
-## tmux
+#---------------------------------------- 
+# tmux
+#---------------------------------------- 
 sudo apt-get install -y tmux
 if [ -f "${HOME}/.tmux.conf" ]; then
     cp ${HOME}/.tmux.conf ${HOME}/.tmux.conf.bak
@@ -24,7 +30,14 @@ echo "source ~/devenv/tmux/.tmux.conf" > ${HOME}/.tmux.conf
 echo "source $HOME/devenv/tmux/.tmux.conf" > ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/devenv/tmux/plugins/tpm
 
+#---------------------------------------- 
+# set nodejs install version to 12.x LTS
+#---------------------------------------- 
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
+#---------------------------------------- 
 # ccls
+#---------------------------------------- 
 sudo apt-get install -y cmake clang libclang-10-dev nodejs npm
 pushd .
 mkdir ~/source
@@ -34,7 +47,9 @@ cd ccls
 cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/usr/lib/llvm-10 -DLLVM_INCLUDE_DIR=/usr/lib/llvm-10/include -DLLVM_BUILD_INCLUDE_DIR=/usr/include/llvm-10/ && cd Release && sudo make install
 popd
 
+#---------------------------------------- 
 # git
+#---------------------------------------- 
 git config --global user.email kxhuan@dolby.com
 git config --global user.name kxhuan
 
@@ -46,7 +61,9 @@ if ! grep -q "[incude]" ${HOME}/.gitconfg ; then
     print "[include]\n\tpath=${HOME}/devenv/git/.gitconfig" >> $HOME/.gitconfig
 fi
 
+#---------------------------------------- 
 # neovim
+#---------------------------------------- 
 sudo apt-get install -y neovim
 if [ -f "${HOME}/.config/nvim/init.vim" ]; then
     cp ${HOME}/.config/nvim/init.vim ${HOME}/.config/nvim/init.vim.bak
@@ -62,6 +79,20 @@ ln -s ${HOME}/devenv/coc.nvim/coc-settings.json ${HOME}/.config/nvim/coc-setting
 
 sudo npm install -g neovim
 
-#ccache & distcc client
+#---------------------------------------- 
+# coc-pyrght support 
+#---------------------------------------- 
+pip3 install pynvim
+pip install --user pipenv --upgrade
+
+# create .pylintrc file
+cat <<EOF >> $HOME/.pylintrc
+init-hook=
+    try: import pylint_venv
+    except ImportError: pass
+else: pylint_venv.inithook()
+EOF
+
+# ccache & distcc client @TODO setup environment
 sudo apt-get install ccache
 sudo apt-get install distcc

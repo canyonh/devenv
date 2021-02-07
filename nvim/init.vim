@@ -32,11 +32,11 @@ set ignorecase
 if (has("termguicolors"))
   set termguicolors
 endif
-"if exists('+termguicolors')
-"  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"  set termguicolors
-"endif
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 "-------------------------------------------------
 " NerdTree
@@ -48,6 +48,9 @@ let g:EasyGrepOpenWindowOnMatch=0
 " leader k for nerd tree
 nmap <leader>k :NERDTreeToggle<cr>
 
+"-------------------------------------------------
+" Shortcuts for open and searching
+"-------------------------------------------------
 " ctrl-p for file searching
 nmap <C-p> :Files<cr>
 
@@ -199,3 +202,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+"-------------------------------------------------
+" coc-pyright
+"-------------------------------------------------
+

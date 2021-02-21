@@ -104,7 +104,7 @@ sudo npm install -g neovim
 # coc-pyrght support 
 #---------------------------------------- 
 sudo apt install -y python3 python3-pip
-pip3 install pynvim
+pip3 install --user pynvim --upgrade
 pip3 install --user pipenv --upgrade
 
 # create .pylintrc file

@@ -7,8 +7,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'mhinz/vim-signify'
 call plug#end()
 
@@ -18,12 +16,20 @@ call plug#end()
 
 " Display all matching files when we tab complete
 set wildmenu
-
-set nu
+set number
 set hlsearch
 
 set tabstop=4 softtabstop=0 shiftwidth=4 smarttab expandtab
 "set tabstop=4 softtabstop=0 shiftwidth=4 smarttab
+
+" always show current cursorline
+set cursorline
+
+" dark background
+set background=dark
+
+" set indent smart
+set smartindent autoindent
 
 " case insensitive search
 set ignorecase
@@ -37,6 +43,9 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+" auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+au! BufWritePost $MYVIMRC source %      
 
 "-------------------------------------------------
 " NerdTree

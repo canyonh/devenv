@@ -109,6 +109,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 nvim --headless +PlugInstall +qa
 
 sudo npm install -g neovim
+sudo npm install -g bash-language-server 
 
 #---------------------------------------- 
 # coc-pyrght support 

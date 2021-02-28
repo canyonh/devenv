@@ -49,13 +49,19 @@ let g:EasyGrepOpenWindowOnMatch=0
 nmap <leader>k :NERDTreeToggle<cr>
 
 "-------------------------------------------------
-" Shortcuts for open and searching
+" FZF Shortcuts for open and searching
 "-------------------------------------------------
 " ctrl-p for file searching
 nmap <C-p> :Files<cr>
 
 " ctrl-f for finding in files
 nmap <C-n> :Ag<cr>
+
+" popup window
+"let g:fzf_layout = { 'window': {'width': 0.9, 'height': 0.6 }}
+" down 40%
+let g:fzf_layout = { 'down': '40%' }
+
 
 "-------------------------------------------------
 " Powerline

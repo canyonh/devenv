@@ -7,7 +7,7 @@ set -e
 # utility
 #---------------------------------------- 
 sudo apt update 
-sudo apt install -y openssh-server silversearcher-ag
+sudo apt install -y curl openssh-server silversearcher-ag
 
 #---------------------------------------- 
 # zsh

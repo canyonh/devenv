@@ -120,7 +120,7 @@ pip3 install --user pipenv --upgrade
 
 # create .pylintrc file
 if [ -f "$HOME/.pylintrc" ]; then
-    rm $HOME/.pylintrc.bak
+    rm -f $HOME/.pylintrc.bak
     mv $HOME/.pylintrc $HOME/.pylintrc.bak
 fi
 

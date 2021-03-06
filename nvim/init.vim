@@ -88,6 +88,13 @@ let g:signify_vcs_list = [ 'git', 'perforce' ]
 "-------------------------------------------------
 " coc.nvim
 "-------------------------------------------------
+let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-pyright',
+    \ 'coc-json',
+    \ 'coc-css',
+    \ 'coc-tsserver'
+    \ ]
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -217,8 +224,4 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-"-------------------------------------------------
-" coc-pyright
-"-------------------------------------------------
 

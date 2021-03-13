@@ -14,6 +14,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "-------------------------------------------------
@@ -23,6 +24,7 @@ call plug#end()
 " Display all matching files when we tab complete
 set wildmenu
 set number
+set ruler
 set hlsearch
 
 set tabstop=4 softtabstop=0 shiftwidth=4 smarttab expandtab
@@ -51,10 +53,20 @@ if exists('+termguicolors')
 endif
 
 " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+" Does not seem to work
 au! BufWritePost $MYVIMRC source %      
 
-syntax on
+" Turn syntax on
+syntax enable
+
+" color scheme
 colorscheme molokai
+
+" Resize windows
+nnoremap <M-j> :resize +2<CR>
+nnoremap <M-k> :resize -2<CR>
+nnoremap <M-h> :vertical resize +2<CR>
+nnoremap <M-l> :vertical resize -2<CR>
 
 "-------------------------------------------------
 " vpp-cpp-enhanced-highlight

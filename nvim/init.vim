@@ -9,6 +9,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tomasr/molokai'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 "-------------------------------------------------
@@ -57,6 +62,13 @@ colorscheme molokai
 "let g:cpp_class_scope_highlight = 1
 "let g:cpp_member_variable_highlight = 1
 "let g:cpp_posix_standard = 1
+
+"-------------------------------------------------
+" sync javascript highlights, ref https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
+"-------------------------------------------------
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 
 "-------------------------------------------------
 " NerdTree

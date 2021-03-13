@@ -8,6 +8,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
+Plug 'tomasr/molokai'
 call plug#end()
 
 "-------------------------------------------------
@@ -47,6 +48,16 @@ endif
 " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 au! BufWritePost $MYVIMRC source %      
 
+syntax on
+colorscheme molokai
+
+"-------------------------------------------------
+" vpp-cpp-enhanced-highlight
+"-------------------------------------------------
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_member_variable_highlight = 1
+"let g:cpp_posix_standard = 1
+
 "-------------------------------------------------
 " NerdTree
 "-------------------------------------------------
@@ -84,6 +95,14 @@ let g:airline_theme='simple'
 "singify
 "-------------------------------------------------
 let g:signify_vcs_list = [ 'git', 'perforce' ]
+
+"-------------------------------------------------
+" c++ syntax highlighting
+"-------------------------------------------------
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_member_variable_highlight = 1
+"let g:cpp_class_decl_highlight = 1
+"let g:lsp_cxx_hl_use_text_props=1
 
 "-------------------------------------------------
 " coc.nvim

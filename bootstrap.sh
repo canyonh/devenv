@@ -9,6 +9,7 @@ set -e
 sudo apt update 
 sudo apt install -y curl openssh-server silversearcher-ag
 
+
 #---------------------------------------- 
 # zsh
 #----------------------------------------
@@ -70,8 +71,8 @@ if [ -f /usr/local/bin/ccls ]; then
 fi
 
 sudo apt-get install -y cmake clang libclang-10-dev
-pushd .
 
+pushd .
 mkdir -p ~/source
 cd ~/source
 
@@ -85,6 +86,20 @@ cd ccls
 cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/usr/lib/llvm-10 -DLLVM_INCLUDE_DIR=/usr/lib/llvm-10/include -DLLVM_BUILD_INCLUDE_DIR=/usr/include/llvm-10/ && cd Release && sudo make install
 popd
 
+#---------------------------------------- 
+# install nerd font
+#---------------------------------------- 
+
+pushd .
+mkdir -p ~/source
+cd ~/source
+
+if [ -d ${HOME}/source/nerd-fonts]; then
+    rm -rf nerd-fonts.bak
+    mv nerd-fonts nerd-fonts.bak
+fi
+(cd nerd-fonts && ./install.sh Hack)
+popd
 
 #---------------------------------------- 
 # neovim

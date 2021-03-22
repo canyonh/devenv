@@ -1,7 +1,7 @@
 call plug#begin()
 Plug 'will133/vim-dirdiff'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -81,16 +81,21 @@ nnoremap <M-l> :vertical resize -2<CR>
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
+"-------------------------------------------------
+" Coc-explorer
+"-------------------------------------------------
+nmap <leader>k : CocCommand explorer<cr>
 
 "-------------------------------------------------
 " NerdTree
 "-------------------------------------------------
 
 " don't open window on first match
-let g:EasyGrepOpenWindowOnMatch=0
+"let g:EasyGrepOpenWindowOnMatch=0
 
 " leader k for nerd tree
-nmap <leader>k :NERDTreeToggle<cr>
+"nmap <leader>k :NERDTreeToggle<cr>
+"
 
 "-------------------------------------------------
 " FZF Shortcuts for open and searching
@@ -138,7 +143,8 @@ let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-tsserver',
     \ 'coc-prettier',
-    \ 'coc-eslint'
+    \ 'coc-eslint' ,
+    \ 'coc-explorer'
     \ ]
 
 " if hidden is not set, TextEdit might fail.

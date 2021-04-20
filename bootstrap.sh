@@ -164,6 +164,7 @@ if [ ! grep -q "[incude]" ${HOME}/.gitconfig ]; then
     print "[include]\n\tpath=${HOME}/devenv/git/.gitconfig" >> $HOME/.gitconfig
 fi
 
-# ccache & distcc client @TODO setup environment
+# ccache & distcc client 
+# setup is in devenv/.zshrc
 sudo apt-get install ccache
 sudo apt-get install distcc

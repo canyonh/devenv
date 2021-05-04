@@ -15,6 +15,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'jiangmiao/auto-pairs'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 "-------------------------------------------------
@@ -27,7 +28,8 @@ set number
 set ruler
 set hlsearch
 
-set tabstop=4 softtabstop=0 shiftwidth=4 smarttab expandtab
+set tabstop=4 softtabstop=0 shiftwidth=4 smarttab
+"set expandtab
 "set tabstop=4 softtabstop=0 shiftwidth=4 smarttab
 
 " always show current cursorline
@@ -87,6 +89,10 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 nmap <leader>k : CocCommand explorer<cr>
 
 "-------------------------------------------------
+" clang format
+"-------------------------------------------------
+nnoremap <Leader>f: <C-u>ClangFormat<CR>
+"-------------------------------------------------
 " NerdTree
 "-------------------------------------------------
 
@@ -132,6 +138,12 @@ let g:signify_vcs_list = [ 'git', 'perforce' ]
 "let g:cpp_member_variable_highlight = 1
 "let g:cpp_class_decl_highlight = 1
 "let g:lsp_cxx_hl_use_text_props=1
+
+"-------------------------------------------------
+" clang formt
+"-------------------------------------------------
+"let g:clang_format#detect_style_file = 1
+"autocmd FileType c,cpp ClangFormatAutoEnable
 
 "-------------------------------------------------
 " coc.nvim

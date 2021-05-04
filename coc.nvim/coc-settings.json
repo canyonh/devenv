@@ -42,11 +42,12 @@
     "coc.preferences.formatOnType": true,
     "explorer.width":30,
     "explorer.file.showHiddenFiles": true,
-    "explorer.icon.enableNerdfont": true,
+    "explorer.icon.enableNerdfont": false,
     "explorer.previewAction.onHover": false,
     "explorer.keyMappings.global": {
         "<cr>" : ["expandable?", "expand", "open"],
         "v": "open:vsplit"
     },
-    "java.format.enabled": false
+    "java.format.enabled": false,
+	"python.venvPath":["envs",".pyenv",".direnv", "~/.local/share/virtualenvs", "~/.cache/pypoetry/virtualenvs"]
 }

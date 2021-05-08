@@ -115,7 +115,7 @@ mkdir -p ${HOME}/.config/nvim
 echo "source ~/devenv/nvim/init.vim" > ${HOME}/.config/nvim/init.vim
 
 if [ -f "${HOME}/.config/nvim/coc-settings.json " ]; then
-    rm ${HOME}/.config/nvim/coc-settings.json.bak
+    rm -f ${HOME}/.config/nvim/coc-settings.json.bak
     mv ${HOME}/.config/nvim/coc-settings.json ${HOME}/.config/nvim/coc-settings.json.bak
 fi
 

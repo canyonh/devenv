@@ -1,7 +1,6 @@
 call plug#begin()
 Plug 'will133/vim-dirdiff'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -16,6 +15,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
+Plug 'puremourning/vimspector'
 call plug#end()
 
 "-------------------------------------------------
@@ -76,6 +76,13 @@ nnoremap <M-l> :vertical resize -2<CR>
 "let g:cpp_class_scope_highlight = 1
 "let g:cpp_member_variable_highlight = 1
 "let g:cpp_posix_standard = 1
+
+"-------------------------------------------------
+" vpp-cpp-enhanced-highlight
+"-------------------------------------------------
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools']
+
 
 "-------------------------------------------------
 " sync javascript highlights, ref https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim

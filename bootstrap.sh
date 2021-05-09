@@ -90,16 +90,16 @@ popd
 # install nerd font
 #---------------------------------------- 
 
-pushd .
-mkdir -p ~/source
-cd ~/source
-
-if [ -d ${HOME}/source/nerd-fonts]; then
-    rm -rf nerd-fonts.bak
-    mv nerd-fonts nerd-fonts.bak
-fi
-(cd nerd-fonts && ./install.sh Hack)
-popd
+#pushd .
+#mkdir -p ~/source
+#cd ~/source
+#
+#if [ -d ${HOME}/source/nerd-fonts]; then
+#    rm -rf nerd-fonts.bak
+#    mv nerd-fonts nerd-fonts.bak
+#fi
+#(cd nerd-fonts && ./install.sh Hack)
+#popd
 
 #---------------------------------------- 
 # neovim
@@ -125,6 +125,12 @@ nvim --headless +PlugInstall +qa
 
 sudo npm install -g neovim
 sudo npm install -g bash-language-server 
+
+#---------------------------------------- 
+# vimspector
+#---------------------------------------- 
+nvim --headless +VimspectorInstall +qa
+
 
 #---------------------------------------- 
 # coc-pyrght support 

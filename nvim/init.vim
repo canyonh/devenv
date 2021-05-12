@@ -15,7 +15,8 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
-Plug 'puremourning/vimspector'
+"Plug 'puremourning/vimspector'
+Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh' }
 call plug#end()
 
 "-------------------------------------------------
@@ -80,8 +81,8 @@ nnoremap <M-l> :vertical resize -2<CR>
 "-------------------------------------------------
 " vpp-cpp-enhanced-highlight
 "-------------------------------------------------
-let g:vimspector_enable_mappings = 'HUMAN'
-let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools']
+"let g:vimspector_enable_mappings = 'HUMAN'
+"let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools']
 
 
 "-------------------------------------------------

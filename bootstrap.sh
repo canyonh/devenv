@@ -152,6 +152,11 @@ init-hook=
 else: pylint_venv.inithook()
 EOF
 
+# ccache & distcc client 
+# setup is in devenv/.zshrc
+sudo apt-get install ccache
+sudo apt-get install distcc
+
 #---------------------------------------- 
 # git
 #---------------------------------------- 
@@ -166,11 +171,9 @@ else
     touch ${HOME}/.gitconfig
 fi
 
-if [ ! grep -q "[incude]" ${HOME}/.gitconfig ]; then
+grep -qF "[include]" ${HOME}/.gitconfig
+
+if [ "$?" -ne "0" ]; then
     print "[include]\n\tpath=${HOME}/devenv/git/.gitconfig" >> $HOME/.gitconfig
 fi
 
-# ccache & distcc client 
-# setup is in devenv/.zshrc
-sudo apt-get install ccache
-sudo apt-get install distcc

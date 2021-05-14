@@ -16,7 +16,6 @@ Plug 'jparise/vim-graphql'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
 "Plug 'puremourning/vimspector'
-Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh' }
 call plug#end()
 
 "-------------------------------------------------
@@ -100,16 +99,12 @@ nmap <leader>k : CocCommand explorer<cr>
 " clang format
 "-------------------------------------------------
 nnoremap <Leader>f: <C-u>ClangFormat<CR>
-"-------------------------------------------------
-" NerdTree
-"-------------------------------------------------
 
-" don't open window on first match
-"let g:EasyGrepOpenWindowOnMatch=0
-
-" leader k for nerd tree
-"nmap <leader>k :NERDTreeToggle<cr>
-"
+"-------------------------------------------------
+" Termdebug
+"-------------------------------------------------
+packadd termdebug
+let g:termdebug_wide = 163
 
 "-------------------------------------------------
 " FZF Shortcuts for open and searching

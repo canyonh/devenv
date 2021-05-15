@@ -103,8 +103,28 @@ nnoremap <Leader>f: <C-u>ClangFormat<CR>
 "-------------------------------------------------
 " Termdebug
 "-------------------------------------------------
+
+" add terminal debug package
 packadd termdebug
+
+" to know conbination of function keys press the key in command mode (:) then
+" the corresponding function key will show. for example shift function keys
+" are + 12 (e.g. shift F6 -> F18)
 let g:termdebug_wide = 163
+nnoremap <F5> :Run<CR>
+" Shift-F5
+nnoremap <F17> :call TermDebugSendCommand('quit')<CR>
+
+nnoremap <F6> :Over<CR>
+" shift-F6
+nnoremap <F18> :Step<CR>
+nnoremap <F7> :Finish<CR>
+
+nnoremap <F8> :Break<CR>
+" shift F8
+nnoremap <F20> :Clear<CR>
+
+nnoremap <F9> :Continue<CR>
 
 "-------------------------------------------------
 " FZF Shortcuts for open and searching
